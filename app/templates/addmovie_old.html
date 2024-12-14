@@ -1,0 +1,110 @@
+<!-- {% load static %} -->
+{% get_static_prefix as d %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Add Movies</title>
+
+    <link rel="stylesheet" href="{{d}}css/movie.css">
+
+    <script src="https://kit.fontawesome.com/2ccda84a46.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="img" style="height: 00%;">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    
+        <!-- user and back button  start-->
+        <div class="entry ">
+            <div class="row d-flex  text-light bg-dark justify-content-end" style="margin: 0; padding: 1%;">
+                <div class="col-md-12; ">
+                    <i class="fa-solid fa-arrow-left "></i>
+                    <label for="" name="" id=""><a style="color:white; text-decoration: none;"
+                            href="theatrelogged">Back</a></label>&nbsp;&nbsp;
+                    <!-- username here -->
+                    <label for="" name="" id=""><i class="fa-regular fa-user"></i>....</label>
+                    <!-- ends      -->
+
+                </div>
+            </div>
+            <!-- ends -->
+            <!-- add movies start -->
+            <br>
+            <br>
+            <div class="header mx-2 text-light ">
+                <h1> <u><b> Add Movies</b> </u></h1>
+            </div>
+            <div class="container_header ">
+                <div class="row d-flex m-5">
+
+                    <div class="col-md-12  mx-2  py-5">
+                        <div class="form-group row justify-content-center">
+                            <label for="" class="col-form-label">Movie Name:</label>
+                            <div class="col-6 ">
+                                <input type="text" class="form-control" required="" name="movie"
+                                    placeholder="Enter Movie Name">
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center m-2">
+                            <label for="" class="col-form-label">Movie Description</label>
+                            <div class="col-6  ">
+                                <input type="text" class="form-control" required id="" name="Description"
+                                    placeholder="Enter Description Here">
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center m-2">
+                            <label for="" class="col-form-label">No.Of Tickets</label>
+                            <div class="col-6  ">
+                                <input type="number" class="form-control" required id="" name="no_tickets"
+                                    placeholder="Enter No. Of Tickets Here">
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center m-2">
+                            <label for="" class="col-form-label">Screen</label>
+                            <div class="col-6  ">
+                                <input type="number" class="form-control" required id="" name="no_screen"
+                                    placeholder="Enter No. Of Screen Here">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row justify-content-center mx-5">
+                            <label for="" class="col-form-label">image</label>
+                            <div class="col-6 mx-5">
+                                <input type="file" value="file" class="form-control" required id="" name="hi">
+                            </div>
+                        </div>
+                        
+                        <div class="row d-flex py-2">
+                            <div class="col-md-12 justify-content-center">
+                                <!-- button start -->
+                                <div class="form-group ">
+                                    <input type="submit" value="ADD" class="btn btn-danger" name="" id="">
+                                    <input type="submit" value="reset" class="btn btn-info">
+                                </div>
+                                <!-- button ends -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- ends -->
+    </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    </div>
+</body>
+
+</html>

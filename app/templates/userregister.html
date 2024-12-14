@@ -1,0 +1,280 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user register</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: url('{% static "images/theatre8.jpg"%}');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            font-family: sans-serif;
+            margin-top: 40px;
+        }
+        .regform{
+            width: 800px;
+            background-color: rgb(0,0,0,0.6);
+            margin: auto;
+            color: #FFFFFF;
+            padding: 10px 0px 10px 0px;
+            text-align: center;
+            border-radius: 15px 15px 0px 0px;
+
+        }
+        .main{
+            background-color: rgb(0,0,0,0.5);
+            width: 800px;
+            margin: auto;
+
+        }
+        form{
+            padding: 10px;
+
+        }
+        .name{
+            margin-left: 25px;
+            margin-top: 30px;
+            width: 125px;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .firstname{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+        }
+        .lastname{
+            position: relative;
+            left: 417px;
+            top: -80px;
+            line-height: 40px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+
+        }
+        .firstlabel{
+            position: relative;
+            color: #E5E5E5;
+            text-transform: capitalize;
+            font-size: 14px;
+            left: 203px;
+            top: -45px;
+
+        }
+        .lastlabel{
+            position: relative;
+            color: #E5E5E5;
+            text-transform: capitalize;
+            font-size: 14px;
+            left: 175px;
+            top: -47px;
+
+        }
+        .Company{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 480px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+
+        }
+        .email{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 480px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+        }
+        .code{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 95px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+        }
+        .number{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 255px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+        }
+        .area-code{
+            position: relative;
+            color: #E5E5E5;
+            text-transform: capitalize;
+            font-size: 16px;
+            left: 54px;
+            top: -4px;
+
+        }
+        .phone_number{
+            position: relative;
+            color: #E5E5E5;
+            text-transform: capitalize;
+            font-size: 16px;
+            left: -100px;
+            top: -2px;
+        }
+        .option{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 532px;
+            height: 40px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+            outline: none;
+            overflow: hidden;
+
+        }
+        .option option{
+            font-size: 20px;
+
+        }
+        #coustomer{
+            margin-left: 25px;
+            color: white;
+            font-size: 18px;
+        }
+        .radio{
+            display: inline-block;
+            padding-right: 70px;
+            font-size: 25px;
+            margin-left: 25px;
+            margin-top: 15px;
+            color: white;
+        }
+        .radio input{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            outline: none;
+        }
+        button{
+            background-color: #3BAF9F;
+            display: block;
+            margin: 20px 0px 0px 20px;
+            text-align: center;
+            border-radius: 12px;
+            border: 2px solid #366473;
+            padding: 14px 110px ;
+            color: black;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 250px;
+            outline: none;
+            transition: 0.25px;
+
+        }
+        button:hover{
+            background-color: white;
+
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    {% if key1 %}
+        <center><h4 style="color: red;">{{key1}}</h4></center>
+    {% endif %}
+
+  <a href="/">Back</a> 
+    <div class="regform"><h1>Register Here</h1></div>
+    <div class="main">
+    <form method="post">
+        {% csrf_token %}
+        <div id="name">
+            <h2 class="name">Name</h2>
+            <input class="firstname" type="text" name="user_name" required><br>
+            <label class="firstlabel">User Name</label>
+            <input class="lastname" type="Password" name="Password" required>
+            <label class="lastlabel">Password</label>
+        </div>
+
+        <h2 class="name">Confirm Password</h2>
+        <input class="Company" type="password" name="Confirm_Password" required>
+
+        <h2 class="name">email</h2>
+        <input class="email" type="text" name="email" required>
+
+        <h2 class="name">phone</h2>
+        <input class="code" type="text" name="area_code" required>
+
+        <label class="area-code">area code</label>
+        <input class="number" type="text" name="phone" required>
+        <label class="phone_number">phone number</label>
+
+        <h2 class="name">Location</h2>
+        <input class="email" type="text" name="location" required>
+
+        <h2 id="coustomer">Gender</h2>
+        <label class="radio">
+            <input class="radio-one" type="radio" value="female" checked="checked" name="gender" >
+            <span class="checkmark"></span>
+            Female
+        </label>
+        <label class="radio">
+            <input class="radio-two" type="radio" value="male" checked="checked" name="gender" >
+            <span class="checkmark"></span>
+            Male
+        </label>
+        <button type="submit">Register</button>
+        
+       
+        
+        
+    </form>
+</div>
+<script>
+    document.querySelector('.button').onclick = function(){
+        var password = documentSelector('.password').value;
+        if(password == ""){
+            alert("please fill the field");
+        }
+        else if(password != confirmpassword){
+            alert("password mismatch");
+        }
+    }
+</script>
+</body>
+</html>

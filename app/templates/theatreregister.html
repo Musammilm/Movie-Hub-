@@ -1,0 +1,345 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>theatre register</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: url('{% static "images/theatre4.jpg"%}');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            font-family: sans-serif;
+            margin-top: 40px;
+        }
+        .regform{
+            width: 800px;
+            background-color: rgb(0,0,0,0.6);
+            margin: auto;
+            color: #FFFFFF;
+            padding: 10px 0px 10px 0px;
+            text-align: center;
+            border-radius: 15px 15px 0px 0px;
+
+        }
+        .main{
+            background-color: rgb(0,0,0,0.5);
+            width: 800px;
+            margin: auto;
+
+        }
+        form{
+            padding: 10px;
+
+        }
+        .name{
+            margin-left: 25px;
+            margin-top: 30px;
+            width: 125px;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .firstname{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+        }
+        .lastname{
+            position: relative;
+            left: 417px;
+            top: -80px;
+            line-height: 40px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+
+        }
+        .firstlabel{
+            position: relative;
+            color: #E5E5E5;
+            text-transform: capitalize;
+            font-size: 14px;
+            left: 203px;
+            top: -45px;
+
+        }
+        .lastlabel{
+            position: relative;
+            color: #E5E5E5;
+            text-transform: capitalize;
+            font-size: 14px;
+            left: 175px;
+            top: -47px;
+
+        }
+        .Company{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 480px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+
+        }
+        .email{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 480px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+        }
+        .code{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 95px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+        }
+        .number{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 255px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+        }
+        .area-code{
+            position: relative;
+            color: #E5E5E5;
+            text-transform: capitalize;
+            font-size: 16px;
+            left: 54px;
+            top: -4px;
+
+        }
+        .phone_number{
+            position: relative;
+            color: #E5E5E5;
+            text-transform: capitalize;
+            font-size: 16px;
+            left: -100px;
+            top: -2px;
+        }
+        .option{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 532px;
+            height: 40px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+            outline: none;
+            overflow: hidden;
+
+        }
+        .option option{
+            font-size: 20px;
+
+        }
+        #coustomer{
+            margin-left: 25px;
+            color: white;
+            font-size: 18px;
+        }
+        
+        button{
+            background-color: #3BAF9F;
+            display: block;
+            margin: 20px 0px 0px 20px;
+            text-align: center;
+            border-radius: 12px;
+            border: 2px solid #366473;
+            padding: 14px 110px ;
+            color: black;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 250px;
+            outline: none;
+            transition: 0.25px;
+
+        }
+        button:hover{
+            background-color: white;
+
+        }
+        .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 200px;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+label{
+    color: #E5E5E5;
+}
+    </style>
+</head>
+<body>
+    {% if key2 %}
+        <center><h5 style="color: red;">{{key2}}</h5></center>
+    {% endif %}
+    
+    <div class="regform"><h1>Register Here</h1></div>
+    <div class="main">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div id="name">
+            <h2 class="name">Name</h2>
+            <input class="firstname" type="text" name="user_name" required><br>
+            <label class="firstlabel">Theatre Name</label>
+            <input class="lastname" type="password" name="Password" required>
+            <label class="lastlabel">Password</label>
+        </div>
+
+        <h2 class="name">Confirm Password:</h2>
+        <input class="Company" type="password" name="Password1" required>
+
+        <h2 class="name">GST No:</h2>
+        <input class="Company" type="text" name="gstno" required>
+
+        <h2 class="name">email</h2>
+        <input class="email" type="text" name="email" required>
+
+        <h2 class="name">Number</h2>
+        <input class="code" type="text" name="License_No" required>
+
+        <label class="area-code">License No</label>
+        <input class="number" type="text" name="phone" required>
+        <label class="phone_number">phone number</label>
+
+        <h2 class="name">Facilities</h2>
+        
+        <label class="container">AC
+            <input type="checkbox" name="Facilities" value="AC">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">Parking
+            <input type="checkbox" name="Facilities" value="Parking">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">Sound System
+            <input type="checkbox" name="Facilities" value="Sound System">
+            <span class="checkmark"></span>
+          </label>
+          
+        <h2 class="name">Location</h2>
+        <input class="email" type="text" name="location" required>
+
+
+        <h2 class="name">Specification</h2>
+        
+<label class="container">3D
+  <input type="checkbox" name="specification" value="3D" id="a1">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Lighting
+  <input type="checkbox" name="specification" value="Lighting" id="a2" >
+  <span class="checkmark"></span>
+</label>
+<label class="container">Sound System
+  <input type="checkbox" name="specification" value="Sound System" id="a3">
+  <span class="checkmark"></span>
+</label>
+
+        <!-- <h2 class="name">QR code</h2> -->
+        <!-- <input class="email" type="file" name="qrcode" required > -->
+
+
+        <button type="submit">Register</button>
+        <button ><a href="theatrelogin">Login</a> </button>
+        
+    </form>
+</div>
+</body>
+</html>

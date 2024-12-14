@@ -1,0 +1,155 @@
+{% load static %}
+{% get_static_prefix as d %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Shows</title>
+</head>
+<style>
+    body{
+        background-image: url('{{d}}images/theatre10.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    .head{
+        width: 500px;
+        height: 550px;
+        background-color: rgb(0,0,0,0.7);
+        text-align: center;
+        border-radius: 15px 15px 15px 15px;
+        padding: 10px 0px 10px 0px;
+        margin-left: 400px;
+        margin-top: 20px;
+    }
+    .head button{
+        background-color: antiquewhite;
+        display: block;
+        text-align: center;
+        border-radius: 20px;
+        border: 2px solid #366473;
+        padding: 12px 50px;
+        color: black;
+        font-size: 18px;
+        cursor: pointer;
+        margin-left: 180px;
+        outline: none;
+        transition: 0.25px;
+        margin-top: 50px;
+        
+    }
+    .head a{
+        text-decoration: none;
+
+    }
+    button:hover{
+        background-color: #366473;
+    }
+    .head h4{
+        color: white;
+        font-size: 24px;
+        position: relative;
+        margin: auto;
+        top: 50px;
+        right: 110px;
+    }
+    .wee{
+        top: 20px;
+        margin-left: 250px;
+    }
+    .select-box{
+        width: 200px;
+        position: relative;
+
+    }
+    .select-box select{
+        height: 45px;
+        padding: 10px 15px;
+        line-height: 14px;
+        font-size: 16px;
+        width: 100%;
+        position: relative;
+        margin-top:0px;
+        margin-left: 250px;
+        color: white;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        background: rgb(0,0,0,0.5);
+        
+
+    }
+    .select-box select option{
+        background-color: rgba(22, 18, 18, 0.7);
+    }
+    .box select:focus{
+        border:2px solid green;
+    }
+    input[type="date"]{
+        background-color: rgb(0,0,0,0.5);
+        padding: 8px;
+        margin-top:17px;
+        margin-left: 160px;
+        position: relative;
+        font-family: 'Times New Roman', Times, serif;
+        color: #fff;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        border: 2px solid #ccc;
+        
+    }
+    input[type="number"]{
+        background-color: rgb(0,0,0,0.5);
+        padding: 8px;
+        width: 80px;
+        margin-top:17px;
+        margin-left: 110px;
+        position: relative;
+        font-family: 'Times New Roman', Times, serif;
+        color: #fff;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        border: 2px solid #ccc;
+    }
+
+</style>
+<body>
+    <center><label for="" name="" id=""><a style="color:white; text-decoration: none;"
+        href="theatrelogged">Back</a></label>&nbsp;&nbsp;</center>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div  class="head">
+            <h4>Select Movie</h4>
+            <div class="select-box">  
+                <select name="movienames" id="week" class="wee">
+                    {% for k in key3 %}
+                    <option value="{{k.moviename}}">{{k.moviename}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <h4>Show Time</h4>
+            <div class="select-box"> 
+                <select name="movieshow" id="week" class="wee">
+                    <option value="Morning Show">Morning Show</option>
+                    <option value="Noon Show">Noon Show</option>
+                    <option value="Matinee Show">Matinee Show</option>
+                    <option value="Second Show">Second Show</option>
+                </select>
+            </div>
+            <h4>Start date</h4>
+            <input type="date" name="date" id="">
+            <h4>End Date</h4>
+            <input type="date" name="date1" id="">
+            <h4>Price</h4>
+            <input type="number" name="price" id="">
+            <a href="booking"><button type="submit">submit</button></a>
+        </div>
+    </form>
+</body>
+</html>

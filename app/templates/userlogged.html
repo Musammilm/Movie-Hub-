@@ -1,0 +1,259 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user</title>
+    <style>
+        *{
+          margin: 0;
+          padding: 0;
+          font-family: sans-serif;
+          box-sizing: border-box;
+          
+            
+        }
+        body{
+
+            background-image: url('{% static "images/theatre11.jpg"%}');
+            background-repeat: no-repeat;
+            background-position: cover;
+            background-size: 100%;
+            background-color: grey;
+            background-attachment: fixed;
+        
+        }
+        nav{
+            
+            width: 100%;
+            padding: 10px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .logo{
+            width: 120px;
+        }
+        .user-pic{
+            width: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-left: 30px;
+
+        }
+        nav ul{
+            width: 100%;
+            text-align: right;
+        }
+        nav ul li{
+            display: inline-block;
+            list-style: none;
+            margin: 10px 20px;
+
+        }
+        nav ul li a{
+            color: white;
+            text-decoration: none;
+        }
+        .sub-menu-wrap{
+            position: absolute;
+            top: 100%;
+            right: 5%;
+            width: 200px;
+            max-height: 0px;
+            overflow: hidden;
+            transition: max-height 0.5s;
+
+
+        }
+        .sub-menu-wrap.open-menu{
+            max-height: 400px;
+
+        }
+        .sub-menu{
+            background: #fff;
+            padding: 20px;
+            margin: 10px;
+        }
+        .uer-info{
+            display: flex;
+            align-items: center;
+
+        }
+        .uer-info h2{
+            font-weight: 500;
+        }
+        .uer-info img{
+            width: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+
+        }
+        .sub-menu hr{
+            border: 0;
+            height: 1px;
+            width: 100%;
+            background: #ccc;
+            margin: 15px 0 10px;
+
+        }
+        .sub-menu-link{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #525252;
+            margin: 12px 0;
+        }
+        .sub-menu-link p{
+            width: 100%;
+        }
+        .sub-menu-link img{
+            width: 40px;
+            background: #e5e5e5;
+            border-radius: 50%;
+            padding: 8px;
+            margin-right: 15px;
+
+        }
+        .sub-menu-link span{
+            font-size: 22px;
+            transition: transform 0.5s;
+        }
+        .sub-menu-link:hover span{
+            transform: translateX(5px);
+
+        }
+        .sub-menu-link:hover p{
+            font-weight: 600;
+
+        }
+        .flex-container{
+            
+            width:100%;
+            height:auto;
+            justify-content:center;
+            align-items: left;
+            flex-wrap: wrap;
+        }
+        a{
+        text-decoration: none;
+        }
+        .contain{
+        height: auto;
+        margin-top: 0px;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        display: flex;
+        box-sizing: border-box;
+        justify-content: space-around;
+        
+    }
+    .row{
+        height: auto;
+        width: 100%;
+        width: 20%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        display: flex;
+        box-sizing: border-box;
+        justify-content: space-around;
+    }
+    .card{
+        display: flex;
+        align-items: center;
+        margin: 10px 20px;
+        flex-direction: column;
+        background: rgba(230, 225, 225, 0.8);
+        box-shadow: 0 0 15px rgba(216, 208, 208, 0.6);
+        padding: 10px 20px;
+        border-radius: 20px 20px 20px 20px;
+    }
+    .card img{
+        width: 150px;
+        clip-path: circle();
+    }
+    .card h4{
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        margin: 10px 0;
+        color: black;
+    }
+
+    .h{
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        margin: 10px 0;
+        color: black;
+    }
+
+    .card p{
+        margin-bottom: 10px;
+        color: black;
+    }
+    .card .btn{
+        display:inline-block;
+        background: rgba(179, 174, 174, 0.5);
+        margin-top: auto;
+        color: black;
+        text-align: center;
+        padding: 10px 20px;
+        border-radius: 5px;
+        -webkit-border-radius:5px;
+        -moz-border-radius:5px;
+        -ms-border-radius:5px;
+        -o-border-radius:5px;
+        }
+    .card .btn:hover{
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0, 16),0 3px 6px rgba(0, 0, 0, 0, 23);
+        transform: translate(0px, -8px);
+        background: #000;
+        color: white;
+    }
+    </style>
+</head>
+    <body>
+        <div class="flex-container">
+
+            <nav>
+                <ul>
+                    <li><a href="user_main">Back</a></li>
+                    <li><a href="home">Recommendation</a></li>
+                </ul>
+
+                
+            </nav>
+            <div class="contain">
+               {% for i in key%}
+                    <div class="row">
+                        <div class="card">
+                            <img src="{% get_media_prefix %}{{i.image}}" alt="">
+                            <h4>{{i.movie_name}}</h4>
+                            <p class="h">caste  </p>
+                             <p> {{i.caste}}</p>
+                             <p class="h">Director  </p>
+                            <p>{{i.Director}}</p>
+                            <p class="h">Category  </p>
+                            <p>{{i.Category}}</p>
+                            <p class="h">Language  </p>
+                            <p>{{i.Language}}</p>
+                            <p class="h">Tickets  </p>
+                            <p>{{i.no_tickets}}</p>
+                            <a href="{% url 'book' i.id %}" class="btn">Book Tickets</a>
+            
+                        </div>
+                        
+                    </div>
+                {%endfor%}
+        
+            </div> 
+            
+                
+        </div>
+        
+
+    </body>
+</html>

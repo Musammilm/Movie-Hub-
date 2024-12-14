@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+/* theater login image */
+.image{
+    height: 50%;
+    background-image: url(https://www.britinfo.net/images/social/cinemas.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    
+    
+    }
+/* add move image*/
+.img{
+    background-image: url(https://static.vecteezy.com/system/resources/previews/012/003/606/original/blank-smartphone-with-popcorn-film-strip-clapperboard-on-blue-background-online-streaming-movie-concept-iluustration-free-vector.jpg) ;
+    background-size:cover; 
+
+    background-position: 50%;
+    
+    
+   
+
+}
+   
+.header,.row{
+    margin: 0;
+    padding: 0;
+    
+    text-align: center;
+    
+}
+.container_header{
+    margin:9%;
+    padding: 0%;
+    width: 80%;
+}
+  
+   
+

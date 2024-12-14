@@ -1,0 +1,189 @@
+{% load static %}
+{% get_static_prefix as d %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Feedback</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        .banner{
+            background: linear-gradient(rgba(110, 110, 110, 0.75),rgba(0,0,0,0.75)),url('{{d}}images/fee1.jpg');
+            background-size: 100%;
+            background-repeat: no-repeat;
+        
+            height: 100vh;
+            width: 100%;
+        }
+        .navbar{
+            width: 85%;
+            margin: auto;
+            padding: 35pv 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo{
+            width: 110px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .navbar ul li{
+            list-style: none;
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+        .navbar ul li a{
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .navbar ul li::after{
+            content: '';
+            height: 3px;
+            width: 0;
+            background: #009688;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+        .navbar ul li:hover:after{
+            width: 100%;
+        }
+        
+    
+    
+    
+    .container{
+            width: 420px;
+            background: #000;
+            box-shadow: 0 0 8px rgb(250,250,250,0.6);
+            opacity: 0.6;
+            margin-left: 35%;
+            margin-top: 5%;
+            
+            
+        }
+        .container form{
+            width:100%;
+            text-align: center;
+            padding: 20px 20px;
+
+        }
+        form h1{
+            padding: 10px 0;
+            color: white;
+        }
+        form .id{
+            position:relative;
+        }
+        form input{
+            width: 65%;
+            height: 50px;
+            margin: 4px 0;
+            border: 1px solid #5c5c5c;
+            border-radius: 3px;
+            background: #181717;
+            padding: 0 15px;
+            padding-right: 45px;
+            font-size: 20px;
+            color: #fff;
+        }
+        form textarea{
+            padding: 5px;
+            border: 1px solid #5c5c5c;
+            border-radius: 3px;
+            background: #181717;
+            font-size: 20px;
+            width: 78%;
+            color: #fff;
+
+        }
+        form button{
+            margin-top: 5px;
+            border: none;
+            background:#00fff0;
+            color: #222;
+            padding: 10px 0;
+            width: 80%;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        form input:focus,
+        form textarea:focus{
+            border: 1px solid #00fff0;
+            color: #00fff0;
+            transition: all 0.3s ease;
+        }
+        form input:focus::placeholder,
+        form textarea:focus::placeholder{
+            padding-left: 4px;
+            color: #00fff0;
+            transition: all 0.3s ease;
+        }
+        .logo{
+            width: 110px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .previous {
+  background-color: #f1f1f1;
+  color: black;
+  margin-top: 25px;
+  margin-left: 5%;
+ 
+}
+    button{
+        width: 70px;
+        height: 40px;
+        margin-top: 0%;
+    }
+    .navbar{
+            width: 85%;
+            margin: auto;
+            padding: 35pv 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <a href="user_main" class="previous"><button>&laquo; Back</button></a>
+            
+            <div class="log">
+                <h2>Login as : {{user.username}}</h2>
+            </div>
+    
+        </div>
+        <div class="container">
+            <form action="" method="post" >
+                {% csrf_token %}
+                <h1>Give Your feedback</h1>
+                <div class="id">
+                    <input type="text" placeholder="Full name" name="a1">
+                    <i class="far-fa-user"></i>
+                </div>
+                <div class="id">
+                    <input type="email" placeholder="Email address" name="a2">
+                    <i class="far-fa-envelope"></i>
+                </div>
+                <textarea cols="15" rows="5" placeholder="Enter your opinion here..." name="a3"></textarea>
+                <button>Send</button>
+            </form>
+    
+        </div>
+
+    </div>
+</body>
+</html>

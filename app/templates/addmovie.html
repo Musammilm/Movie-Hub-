@@ -1,0 +1,342 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addmovies</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: url('{% static "images/t1.jpg"%}');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            font-family: sans-serif;
+            margin-top: 40px;
+        }
+        .regform{
+            width: 800px;
+            background-color: rgb(0,0,0,0.6);
+            margin: auto;
+            color: #FFFFFF;
+            padding: 10px 0px 10px 0px;
+            text-align: center;
+            border-radius: 15px 15px 0px 0px;
+
+        }
+        .main{
+            background-color: rgb(0,0,0,0.5);
+            width: 800px;
+            margin: auto;
+
+        }
+        form{
+            padding: 10px;
+
+        }
+        .name{
+            margin-left: 25px;
+            margin-top: 30px;
+            width: 125px;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .firstname{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+        }
+        .lastname{
+            position: relative;
+            left: 417px;
+            top: -80px;
+            line-height: 40px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+
+        }
+        .firstlabel{
+            position: relative;
+            color: #E5E5E5;
+            text-transform: capitalize;
+            font-size: 14px;
+            left: 203px;
+            top: -45px;
+
+        }
+        .lastlabel{
+            position: relative;
+            color: #E5E5E5;
+            text-transform: capitalize;
+            font-size: 14px;
+            left: 175px;
+            top: -47px;
+
+        }
+        .Company{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 480px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+
+        }
+        .email{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 530px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+            height: 45px;
+        }
+        .code{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 95px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+        }
+        .number{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 200px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+        }
+        .area-code{
+            position: relative;
+            color: #E5E5E5;
+            text-transform: capitalize;
+            font-size: 16px;
+            left: 54px;
+            top: -4px;
+
+        }
+        .phone_number{
+            position: relative;
+            color: #E5E5E5;
+            text-transform: capitalize;
+            font-size: 16px;
+            left: 50px;
+            top: -2px;
+        }
+        .option{
+            position: relative;
+            left: 200px;
+            top: -37px;
+            line-height: 40px;
+            width: 532px;
+            height: 40px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;
+            outline: none;
+            overflow: hidden;
+
+        }
+        .option option{
+            font-size: 20px;
+
+        }
+        #coustomer{
+            margin-left: 25px;
+            color: white;
+            font-size: 18px;
+        }
+        
+        button{
+            background-color: #3BAF9F;
+            display: block;
+            margin: 20px 0px 0px 20px;
+            text-align: center;
+            border-radius: 12px;
+            border: 2px solid #366473;
+            padding: 14px 110px ;
+            color: black;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 250px;
+            outline: none;
+            transition: 0.25px;
+
+        }
+        button:hover{
+            background-color: white;
+
+        }
+        .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 200px;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+label{
+    color: #E5E5E5;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+    </style>
+</head>
+<body>
+    {% if key2 %}
+        <center><h5 style="color: red;">{{key2}}</h5></center>
+    {% endif %}
+    <a href="theatrelogged">Back</a>
+    <div class="regform"><h1>Add Movies : {{user.username}}</h1></div>
+    <div class="main">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div id="name">
+            <h2 class="name">Name</h2>
+            <input class="firstname" type="text" name="movie_name" required><br>
+            <label class="firstlabel">Movie Name</label>
+            <input class="lastname" type="text" name="Director" required>
+            <label class="lastlabel">Director</label>
+        </div>
+
+        <h2 class="name">caste</h2>
+        <input class="Company" type="text" name="caste" required>
+
+        <h2 class="name">Category</h2>
+        <input class="Company" type="text" name="Category" required>
+
+        <h2 class="name">Language</h2>
+            <select name="Language" id="week" class="email">
+                <option value="Malayalam">Malayalam</option>
+                <option value="English">English</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Telugu">Telugu</option>
+            </select>
+        
+        <h2 class="name">Date</h2>
+
+        <input class="number" type="date" name="Date" required>
+        <label class="area-code">Start</label>
+
+        <input class="number" type="date" name="Date1" required>
+        <label class="phone_number">End</label>
+
+            
+        
+          <h2 class="name">Set Shows</h2>
+          <select name="set_show" id="week" class="email">
+              <option value="Matinee Show">Matinee Show</option>
+              <option value="Noon Show">Noon Show</option>
+              <option value="First Show">First Show</option>
+              <option value="Second Show">Second Show</option>
+          </select>
+
+
+          <h2 class="name">Number</h2>
+        <input class="number" type="number" name="no_tickets" required>
+        <label class="area-code">Tickets</label>
+        <input class="number" type="number" name="no_screen" required>
+        <label class="phone_number">Screen</label>
+          
+        <h2 class="name">Price</h2>
+        <input class="email" type="number" name="price" required>
+
+        <h2 class="name">Image</h2>
+        <input class="email" type="file" name="image" required >
+
+        <button type="submit">Add</button>
+       
+        
+    </form>
+</div>
+</body>
+</html>
